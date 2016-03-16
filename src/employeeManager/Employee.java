@@ -7,6 +7,13 @@ public class Employee extends Person {
     int salary;
     String jobTitle;
 
+    public Employee(int salary, String jobtitle) {
+
+        this.salary = salary;
+        this.jobTitle = jobtitle;
+    }
+
+
     public int getSalary() {
         return salary;
 

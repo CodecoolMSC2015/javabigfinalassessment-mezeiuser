@@ -17,10 +17,12 @@ public class DataReader {
     }
 
     public void setSearchType(SearchType searchType) {
+
         this.searchType = searchType;
     }
 
-    public void setSearchCriteria(String searchCriteria) {
+    public void setSearchCriteria(String searchCriteria)
+    {
         this.searchCriteria = searchCriteria;
     }
 

@@ -9,15 +9,18 @@
 <form method="post" action="search">
     <table>
         <tr>
-            <td>Search value:</td>
+            <td>Search criteria:</td>
             <td>
-                <input name="sValue" type="text" size="16">
+                <select name="sCriteria">
+                    <option value="mandatory">Mandatory</option>
+                    <option value="optional">Optional</option>
+                </select>
             </td>
         </tr>
         <tr>
-            <td>Search criteria:</td>
+            <td>Search value:</td>
             <td>
-                <input name="sCriteria" type="text" size="16">
+                <input name="sValue" type="text" size="16">
             </td>
         </tr>
     </table>

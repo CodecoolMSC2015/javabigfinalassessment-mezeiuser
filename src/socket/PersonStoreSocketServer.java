@@ -25,15 +25,12 @@ public class PersonStoreSocketServer {
 
             ObjectOutputStream toClient = new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream fromClient = new ObjectInputStream(socket.getInputStream());
-            while (true) {
-                if (fromClient.read() > -1) {
-                    Object objectFromClient = fromClient.readObject();
-                    if (objectFromClient.equals("valami")) {
-                        System.out.println("Search found.");
-                    }
-                    else {
+            while (true) if (fromClient.read() > -1) {
+                Object objectFromClient = fromClient.readObject();
+                if (objectFromClient.equals("test")) {  //test criteria, i would like change later to DataReader
+                    send(toClient, "Search found.");
+                } else {
                     System.out.println("Not found search criteria.");
-                    }
                 }
             }
         } catch (Exception e) {
@@ -41,9 +38,13 @@ public class PersonStoreSocketServer {
         }
     }
 
-
     public static void main(String args[]) {
         PersonStoreSocketServer server = new PersonStoreSocketServer();
         server.runServer();
+    }
+
+    public static void send(ObjectOutputStream x, Object object) throws IOException {
+        x.write(0);
+        x.writeObject(object);
     }
 }

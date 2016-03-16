@@ -42,20 +42,18 @@ public class SearchServlet extends HttpServlet {
                     ObjectOutputStream toServer = new ObjectOutputStream(clientSocket.getOutputStream());
                     ObjectInputStream fromServer = new ObjectInputStream(clientSocket.getInputStream());
                     send(toServer, sValue);
+                    out.print("Searching to<font color='blue'> " + sValue + " </font>from CSV file like<font color='blue'> " + sCriteria + "</font><br>");
+                    if (fromServer != null){
+                        out.print(fromServer);
+                    }
+
                 }catch (Exception e){
                     e.printStackTrace();
                 }
-
-
-                out.print("Searching to<font color='blue'> " + sValue + " </font>from CSV file like<font color='blue'> " + sCriteria + "</font>");
             }
         } finally {
             out.close();
         }
-
-
-        out.print("Dont work yet!");
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
